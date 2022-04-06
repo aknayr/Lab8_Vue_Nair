@@ -49,14 +49,13 @@
                 computed: {
                     total(){
                         let totalPrice = this.quantity * this.unitPrice
-                        return totalPrice
+                        let formattedPrice = totalPrice.toFixed(2) // formats the total price to two decimal places
+                        return formattedPrice
                     }
                 }
             })
-            app.mount('#app')
-            
 
+            app.mount('#app')
         </script>
-        
     </body>
 </html>
