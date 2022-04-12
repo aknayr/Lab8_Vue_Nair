@@ -7,14 +7,20 @@
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
+
+    <h1>Hello Vue Loops</h1>
+
     <div id="app">
 
-        <ul>
-            <li></li>
-        </ul>
+        <label for="task">Please enter your to-do task:</label>
+        <input id="task" v-model="newTask">
+        <button v-on:click="addTask">Add Task</button>
 
-    
+        <ul>
+            <li v-for="task in taskList">{{ task }}</li>
+        </ul>
 
     </div>
 
@@ -22,12 +28,17 @@
         let app = Vue.createApp({
             data(){
                 return {
-                    taskList: ['water plants', 'feed cat', 'shovel sidewalk']    
+                    newTask: '',
+                    taskList: ['example: water plants']    
                 }
             },
             methods: {
+                addTask() {
+                    this.taskList.push(this.newTask)
 
                 }
+
+            }
         })
 
         app.mount('#app')
